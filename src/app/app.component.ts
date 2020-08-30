@@ -60,7 +60,8 @@ export class AppComponent {
       }
     }// for
   }
-
+  
+  // Remove values from games
   reset(){
     this.game = [];
   }

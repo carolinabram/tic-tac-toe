@@ -21,16 +21,22 @@ export class AppComponent {
   turn = 0;
   cols = 3;
   winner = "";
-
-  setValue(row: number, col:number){
+  
+  /**
+   * Method that sets value to cell
+   * @param row Index of row
+   * @param col Index of column
+   */
+  setValue(row: number, col:number): void{
     let place = (row*3) + col;
     if(this.game[place]) return;
     this.game[place] = this.turn % 2 ? 'X' : 'O';
     this.turn++;
     this.winner = this.whoWin();
   }
-
-  whoWin(){
+  
+  // Checks which player mades a row of 'X's or 'O's
+  whoWin(): string{
     for(let i = 0; i<this.game.length; i++){
       if(this.game[i]!== undefined){        
         // Before and next by the sides
